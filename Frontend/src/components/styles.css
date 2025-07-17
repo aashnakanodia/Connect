@@ -130,3 +130,48 @@ button:focus {
     color: #f9fafb;
   }
 }
+
+/* --- UI/UX Refinements --- */
+.button-primary {
+  @apply bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-bold py-3 px-8 rounded-xl shadow-lg hover:from-blue-700 hover:to-indigo-700 transition-all duration-200;
+}
+.button-secondary {
+  @apply bg-white text-blue-700 border-2 border-blue-600 font-bold py-3 px-8 rounded-xl shadow-lg hover:bg-blue-50 transition-all duration-200;
+}
+.input-field {
+  @apply w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 bg-gray-50 focus:bg-white text-base;
+}
+.message-bubble {
+  @apply px-4 py-3 rounded-2xl shadow-sm transition-all duration-200;
+}
+.message-bubble-right {
+  @apply bg-gradient-to-r from-blue-600 to-indigo-600 text-white ml-auto rounded-br-md text-right;
+}
+.message-bubble-left {
+  @apply bg-white text-gray-800 border border-gray-100 rounded-bl-md text-left;
+}
+/* Spacing for chat area */
+.chat-area {
+  @apply p-4 space-y-2;
+}
+/* General spacing and font size improvements */
+body, html {
+  font-size: 17px;
+}
+.max-w-md {
+  max-width: 28rem;
+}
+.max-w-xs {
+  max-width: 20rem;
+}
+.lg\:max-w-md {
+  max-width: 28rem;
+}
+/* Button spacing */
+button {
+  margin-bottom: 0.5rem;
+}
+/* Remove last margin for stacked buttons */
+button:last-child {
+  margin-bottom: 0;
+}

@@ -155,11 +155,22 @@ const Login = () => {
         </div>
 
         {/* Footer */}
-        <div className="text-center mt-6">
+        <div className="mt-6 text-center space-y-3">
           <p className="text-gray-600">
-            {"Don't have an account? "}
-            <button className="text-blue-600 hover:text-blue-700 font-semibold">Sign up</button>
+            Don't have an account?{" "}
+            <button
+              onClick={() => navigate('/signup')}
+              className="text-blue-600 hover:text-blue-700 font-semibold transition-colors"
+            >
+              Sign up here
+            </button>
           </p>
+          <button
+            onClick={() => navigate('/')}
+            className="text-gray-500 hover:text-gray-700 text-sm transition-colors"
+          >
+            ← Back to Home
+          </button>
         </div>
       </div>
     </div>

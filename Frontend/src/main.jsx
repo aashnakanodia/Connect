@@ -3,12 +3,8 @@ import { createRoot } from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import { 
-  BrowserRouter,
-  Routes,
-  Route
+  BrowserRouter
 } from "react-router-dom";
-import Homepage from "./Pages/Homepage";
-import Chatpage from "./Pages/Chatpage";
 
 // Using BrowserRouter with future flags to address warnings
 const root = createRoot(document.getElementById("root"));

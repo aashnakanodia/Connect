@@ -2,11 +2,12 @@
 
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
-import axios from "axios"
+import api from "../../config/api"
 import ChatLoading from "../ChatLoading"
 import ProfileModal from "./ProfileModal"
 import UserListItem from "../userAvatar/UserListItem"
 import { ChatState } from "../../Context/ChatProvider"
+import '@fortawesome/fontawesome-free/css/all.min.css';
 
 function SideDrawer() {
   const [search, setSearch] = useState("")
@@ -33,18 +34,12 @@ function SideDrawer() {
     try {
       setLoading(true)
 
-      const config = {
-        headers: {
-          Authorization: `Bearer ${user.token}`,
-        },
-      }
-
-      const { data } = await axios.get(`/api/user?search=${search}`, config)
+      const { data } = await api.get(`/api/user?search=${search}`)
 
       setLoading(false)
       setSearchResult(Array.isArray(data) ? data : [])
     } catch (error) {
-      alert("Failed to Load the Search Results")
+      alert(error.response?.data?.message || "Failed to Load the Search Results")
       setLoading(false)
       setSearchResult([])
     }
@@ -53,20 +48,14 @@ function SideDrawer() {
   const accessChat = async (userId) => {
     try {
       setLoadingChat(true)
-      const config = {
-        headers: {
-          "Content-type": "application/json",
-          Authorization: `Bearer ${user.token}`,
-        },
-      }
-      const { data } = await axios.post(`/api/chat`, { userId }, config)
+      const { data } = await api.post(`/api/chat`, { userId })
 
       if (!chats.find((c) => c._id === data._id)) setChats([data, ...chats])
       setSelectedChat(data)
       setLoadingChat(false)
       setOpenDrawer(false)
     } catch (error) {
-      alert("Error fetching the chat")
+      alert(error.response?.data?.message || "Error fetching the chat")
     }
   }
 
@@ -110,14 +99,7 @@ function SideDrawer() {
             {/* Notifications */}
             <div className="relative">
               <button className="relative p-2 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-xl transition-all duration-200">
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M15 17h5l-5 5v-5zM10.5 3.75a6 6 0 00-6 6v3.75a6 6 0 006 6h7.5a6 6 0 006-6V9.75a6 6 0 00-6-6h-7.5z"
-                  />
-                </svg>
+                <i className="fas fa-envelope w-6 h-6"></i>
                 {notification.length > 0 && (
                   <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center font-semibold">
                     {notification.length}

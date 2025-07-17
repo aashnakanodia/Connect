@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const ChatContext = createContext();
 
@@ -10,14 +10,18 @@ const ChatProvider = ({ children }) => {
   const [chats, setChats] = useState([]);
 
   const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     const userInfo = JSON.parse(localStorage.getItem("userInfo"));
     setUser(userInfo);
 
-    if (!userInfo) navigate("/");
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [navigate]);
+    // If no user info is found, redirect to the homepage,
+    // but allow access to the login and signup pages.
+    if (!userInfo && location.pathname !== '/login' && location.pathname !== '/signup') {
+      navigate("/");
+    }
+  }, [navigate, location]);
 
   return (
     <ChatContext.Provider
@@ -41,4 +45,4 @@ export const ChatState = () => {
   return useContext(ChatContext);
 };
 
-export default ChatProvider; 
+export default ChatProvider;
