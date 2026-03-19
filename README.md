@@ -1,4 +1,4 @@
-# ChatSphere
+# Connect
 
 A modern chat application built with React, Node.js, Express, Socket.IO, and MongoDB.
 
@@ -26,7 +26,7 @@ npm install
 3. Create a `.env` file with the following content:
 
 ```
-MONGODB_URI=mongodb://localhost:27017/chatsphere
+MONGODB_URI=mongodb://localhost:27017/connect
 PORT=5000
 JWT_SECRET=your_jwt_secret
 CLIENT_URL=http://localhost:5173

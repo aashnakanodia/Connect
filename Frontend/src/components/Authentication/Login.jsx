@@ -61,7 +61,7 @@ const Login = () => {
             </svg>
           </div>
           <h2 className="text-3xl font-bold text-gray-900 mb-2">Welcome back</h2>
-          <p className="text-gray-600">Sign in to continue to ChatSphere</p>
+          <p className="text-gray-600">Sign in to continue to Connect</p>
         </div>
 
         {/* Login Card */}

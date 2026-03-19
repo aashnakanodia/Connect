@@ -32,7 +32,7 @@ function Homepage() {
               </svg>
             </div>
             <h1 className="text-5xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent mb-4">
-              ChatSphere
+              Connect
             </h1>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
               Connect with friends and family around the world. Experience seamless communication with our modern chat

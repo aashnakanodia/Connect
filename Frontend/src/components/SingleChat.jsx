@@ -301,7 +301,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
                 />
               </svg>
             </div>
-            <h3 className="text-2xl font-bold text-gray-900 mb-2">Welcome to ChatSphere</h3>
+            <h3 className="text-2xl font-bold text-gray-900 mb-2">Welcome to Connect</h3>
             <p className="text-gray-600 max-w-md">
               Select a conversation from the sidebar to start chatting with your friends and colleagues.
             </p>

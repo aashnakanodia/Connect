@@ -103,7 +103,7 @@ const Signup = () => {
             </svg>
           </div>
           <h2 className="text-3xl font-bold text-gray-900 mb-2">Create your account</h2>
-          <p className="text-gray-600">Join ChatSphere and start connecting</p>
+          <p className="text-gray-600">Join Connect and start connecting</p>
         </div>
 
         {/* Signup Card */}
